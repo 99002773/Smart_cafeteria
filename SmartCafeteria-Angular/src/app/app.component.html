@@ -1,0 +1,57 @@
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<div id="app" style="width: 100%;height: 100%;">
+  <nav class="navbar navbar-expand navbar-dark ">
+    
+    <ul class="navbar-nav mr-auto" routerLinkActive="active">
+      
+      <li class="nav-item" *ngIf="showAdminBoard">
+        <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
+      </li>
+      <li class="nav-item" *ngIf="showModeratorBoard">
+        <a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a>
+      </li>
+      <!--li class="nav-item">
+        <a href="/home" class="nav-link" *ngIf="isLoggedIn" routerLink="home" >Home </a>
+         <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a> 
+      </li>-->
+      <!-- <li class="nav-item"> -->
+        <!-- <a href="/home" class="nav-link" *ngIf="isLoggedIn" routerLink="home">Home </a> -->
+        <!-- <mat-icon style="margin-top: 50%;" aria-hidden="false" aria-label="Example home icon"><a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user" style="margin-top: 0%; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font: bold; font-size: 20pt; margin-top: 7%;"></a></mat-icon> -->
+
+        <!-- <mat-icon style="font-size: 25pt;" ><a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user" style="margin-top: 50%;">menu</a></mat-icon>
+      </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <li><a href="/user" class="navbar-brand"><h3 style="margin-top: 0%; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font: bold; font-size: 20pt; margin-top: 7%;">SMART CAFETERIA</h3></a></li>
+     
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+      
+      <li class="nav-item">
+        <a href="/register" class="nav-link" routerLink="register" style="color: black;font-size: 15pt;font-weight: bold;font-family: 'Times New Roman', Times, serif;">Sign Up</a>
+      </li>
+      <li class="nav-item">
+        <a href="/login" class="nav-link" routerLink="login" style="color: black;font-size: 15pt;font-weight: bold;font-family: 'Times New Roman', Times, serif;">Login</a>
+        <!-- <app-home></app-home> -->
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+      <li>
+        <h5 style="font-size: 13pt; margin-top: 10pt;">{{username}}</h5>
+      </li>
+      <li class="nav-item">
+        <mat-icon style="font-size: 25pt;"><a href="/profile" class="nav-link" routerLink="profile" style="color: black;"><span>account_circle</span></a></mat-icon>
+      
+      </li>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <li class="nav-item">
+       <mat-icon style="font-size: 25pt; margin-right: 30pt;"> <a href class="nav-link" (click)="logout()" style="color: black;">logout</a></mat-icon>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container-fluid">
+    
+    <router-outlet></router-outlet>
+  </div>
+</div>
